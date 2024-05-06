@@ -4,3 +4,5 @@
 
 [node name="RoomManager" type="Node"]
 script = ExtResource("1_nxsc3")
+
+[connection signal="room_entered" from="." to="." method="_on_room_entered"]
