@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgeiem22sx0wo"]
+[gd_scene load_steps=4 format=3 uid="uid://cgeiem22sx0wo"]
 
 [ext_resource type="Script" path="res://autoloads/palette_filter.gd" id="1_yqpfr"]
 [ext_resource type="Shader" path="res://shaders/palette-filter.gdshader" id="2_766hk"]
-[ext_resource type="Resource" uid="uid://b5r230hhljguf" path="res://color-palettes/sunset.tres" id="2_ghxjt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vwk1t"]
 shader = ExtResource("2_766hk")
@@ -20,7 +19,6 @@ shader_parameter/new_accent = Color(0, 1, 0, 1)
 [node name="PaletteFilter" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_yqpfr")
-default_palette = ExtResource("2_ghxjt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_vwk1t")

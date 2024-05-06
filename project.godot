@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-RoomManager="*res://autoloads/RoomManager.gd"
+RoomManager="*res://autoloads/room_manager.gd"
 PaletteFilter="*res://autoloads/palette_filter.tscn"
 
 [display]

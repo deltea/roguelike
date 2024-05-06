@@ -14,6 +14,10 @@ func _ready() -> void:
 	update_palette()
 
 func update_palette():
+	if !palette:
+		printerr("🎨 No color palette provided for the current room! Set a default color palette or set a color palette for the room.")
+		return
+
 	RenderingServer.set_default_clear_color(palette.dark)
 
 	$ColorRect.material.set_shader_parameter("new_dark", palette.dark)
