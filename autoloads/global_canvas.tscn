@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://h8ctwcqvx5au"]
+
+[ext_resource type="Texture2D" uid="uid://unb75w064b67" path="res://assets/cursors/cursor.png" id="1_oxluv"]
+[ext_resource type="Script" path="res://scripts/cursor.gd" id="2_w65ay"]
+
+[node name="GlobalCanvas" type="CanvasLayer"]
+
+[node name="Cursor" type="TextureRect" parent="."]
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_oxluv")
+stretch_mode = 2
+script = ExtResource("2_w65ay")
