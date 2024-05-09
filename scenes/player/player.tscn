@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd83eudc7bcdr"]
+[gd_scene load_steps=11 format=3 uid="uid://bd83eudc7bcdr"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_vyoty"]
+[ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="2_mqt8p"]
 [ext_resource type="Texture2D" uid="uid://d201gkbx20gxv" path="res://assets/player.png" id="2_yh2kd"]
 [ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="3_727t6"]
 
@@ -37,7 +38,7 @@ script = ExtResource("1_vyoty")
 
 [node name="Anchor" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Anchor"]
+[node name="Sprite" parent="Anchor" instance=ExtResource("2_mqt8p")]
 texture = ExtResource("2_yh2kd")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

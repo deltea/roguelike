@@ -6,7 +6,7 @@ class_name Player extends CharacterBody2D
 @export var stretch = 0.2
 
 @onready var anchor: Node2D = $Anchor
-@onready var sprite: Sprite2D = $Anchor/Sprite2D
+@onready var sprite: Sprite = $Anchor/Sprite
 @onready var trail: GPUParticles2D = $Trail
 
 var target_rotation = 0.0
