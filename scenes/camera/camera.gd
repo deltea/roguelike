@@ -1,7 +1,9 @@
 class_name Camera extends Camera2D
 
 @export var mouse_strength = 0.08
+@export var look_strength = 20.0
 @export var impact_rotation = 5.0
+@export var offset_smoothing = 10.0
 @export var shake_damping_speed = 1.0
 @export var follow_dynamics: DynamicsResource
 
@@ -19,6 +21,7 @@ func _process(delta: float) -> void:
 	position = follow_dynamics_solver.update(RoomManager.current_room.player.position)
 
 	var mouse_offset = (get_global_mouse_position() - global_position) * mouse_strength
+	var look_offset = Input.get_vector("left", "right", "up", "down") * look_strength
 	if shake_duration > 0:
 		shake_offset = Utils.random_direction() * shake_magnitude
 		shake_duration -= delta * shake_damping_speed
@@ -26,7 +29,7 @@ func _process(delta: float) -> void:
 		shake_duration = 0
 		shake_offset = Vector2.ZERO
 
-	offset = mouse_offset + shake_offset
+	offset = offset.lerp(mouse_offset + look_offset, offset_smoothing * delta) + shake_offset
 
 func shake(duration: float, magnitude: float):
 	shake_duration = duration
