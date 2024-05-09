@@ -2,11 +2,12 @@ class_name Player extends CharacterBody2D
 
 @export var move_speed = 100.0
 @export var rotation_animation_speed = 20.0
-@export var scale_animation_speed = 10.0
-@export var stretch = 0.15
+@export var scale_animation_speed = 15.0
+@export var stretch = 0.2
 
 @onready var anchor: Node2D = $Anchor
 @onready var sprite: Sprite2D = $Anchor/Sprite2D
+@onready var trail: GPUParticles2D = $Trail
 
 var target_rotation = 0.0
 var target_scale = Vector2.ONE
@@ -22,5 +23,7 @@ func _physics_process(delta):
 		target_scale = Vector2(1 + stretch, 1 - stretch)
 	else:
 		target_scale = Vector2.ONE
+
+	trail.emitting = input != Vector2.ZERO
 
 	move_and_slide()
