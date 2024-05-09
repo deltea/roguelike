@@ -9,8 +9,8 @@ class_name Camera extends Camera2D
 
 @onready var follow_dynamics_solver: DynamicsSolverVector = Dynamics.create_dynamics_vector(follow_dynamics)
 
-var shake_duration = 0;
-var shake_magnitude = 0;
+var shake_duration = 0.0;
+var shake_magnitude = 0.0;
 var shake_offset = Vector2.ZERO
 var target_zoom = Vector2.ONE
 

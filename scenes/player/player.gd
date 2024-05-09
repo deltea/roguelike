@@ -27,6 +27,9 @@ func _physics_process(delta):
 	else:
 		target_scale = Vector2.ONE
 
+	if Input.is_action_just_pressed("space"):
+		RoomManager.current_room.camera.shake(0.1, 2)
+
 	trail.emitting = input != Vector2.ZERO
 
 	move_and_slide()
