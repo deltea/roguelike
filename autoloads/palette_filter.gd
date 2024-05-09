@@ -7,11 +7,8 @@ var palette: PaletteResource:
 	set(value):
 		palette = value
 
-func _enter_tree() -> void:
-	RoomManager.room_entered.connect(_on_room_entered)
-
 func _ready() -> void:
-	set_palette(null)
+	set_palette(RoomManager.current_room)
 	set_filter()
 
 func set_filter():
@@ -28,10 +25,4 @@ func set_filter():
 	$ColorRect.material.set_shader_parameter("new_accent", palette.accent)
 
 func set_palette(room: Room):
-	if room:
-		palette = room.palette
-	else:
-		palette = default_palette
-
-func _on_room_entered(room: Room):
-	set_palette(room)
+	palette = room.palette if room else default_palette
