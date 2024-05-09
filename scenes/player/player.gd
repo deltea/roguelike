@@ -12,6 +12,9 @@ class_name Player extends CharacterBody2D
 var target_rotation = 0.0
 var target_scale = Vector2.ONE
 
+func _enter_tree() -> void:
+	RoomManager.current_room.set_deferred("player", self)
+
 func _physics_process(delta):
 	anchor.rotation = lerp_angle(anchor.rotation, target_rotation, rotation_animation_speed * delta)
 	anchor.scale = anchor.scale.lerp(target_scale, scale_animation_speed * delta)

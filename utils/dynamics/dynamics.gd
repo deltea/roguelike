@@ -11,9 +11,6 @@ func create_dynamics(dynamics: DynamicsResource) -> DynamicsSolver:
 
 func create_dynamics_vector(dynamics: DynamicsResource) -> DynamicsSolverVector:
 	var solver = dynamics_solver_vector_scene.instantiate() as DynamicsSolverVector
-	if dynamics:
-		solver.f = dynamics.f
-		solver.z = dynamics.z
-		solver.r = dynamics.r
+	solver.dynamics = dynamics
 	get_tree().root.call_deferred("add_child", solver)
 	return solver
