@@ -2,10 +2,7 @@ extends CanvasLayer
 
 @export var default_palette: PaletteResource
 
-var palette: PaletteResource:
-	get: return palette
-	set(value):
-		palette = value
+var palette: PaletteResource
 
 func _ready() -> void:
 	set_palette(RoomManager.current_room)
@@ -25,4 +22,4 @@ func set_filter():
 	$ColorRect.material.set_shader_parameter("new_accent", palette.accent)
 
 func set_palette(room: Room):
-	palette = room.palette if room else default_palette
+	palette = room.palette if room.palette else default_palette
