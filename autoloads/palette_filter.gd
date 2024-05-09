@@ -22,4 +22,4 @@ func set_filter():
 	$ColorRect.material.set_shader_parameter("new_accent", palette.accent)
 
 func set_palette(room: Room):
-	palette = room.palette if room.palette else default_palette
+	palette = room.palette if room and room.palette else default_palette

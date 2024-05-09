@@ -13,7 +13,7 @@ var target_rotation = 0.0
 var target_scale = Vector2.ONE
 
 func _enter_tree() -> void:
-	RoomManager.current_room.set_deferred("player", self)
+	if RoomManager.current_room: RoomManager.current_room.set_deferred("player", self)
 
 func _physics_process(delta):
 	anchor.rotation = lerp_angle(anchor.rotation, target_rotation, rotation_animation_speed * delta)
