@@ -33,9 +33,10 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.45
 scale_max = 0.45
 scale_curve = SubResource("CurveTexture_oaibe")
-color = Color(0, 0, 1, 1)
+color = Color(1, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_vyoty")
 
 [node name="Anchor" type="Node2D" parent="."]

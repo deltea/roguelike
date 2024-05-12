@@ -1,14 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck34k28tjhu5o"]
+[gd_scene load_steps=9 format=3 uid="uid://ck34k28tjhu5o"]
 
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
 [ext_resource type="PackedScene" uid="uid://bd83eudc7bcdr" path="res://scenes/player/player.tscn" id="2_xp7ls"]
 [ext_resource type="PackedScene" uid="uid://tta865kvysmp" path="res://scenes/camera/camera.tscn" id="4_xx8e1"]
+[ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6opex"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3afsn"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rrvet"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_10laq"]
+normal = Vector2(-1, 0)
 
 [node name="Level" instance=ExtResource("1_1ucq3")]
 
 [node name="Camera" parent="." index="0" instance=ExtResource("4_xx8e1")]
 position = Vector2(240, 135)
 
-[node name="Player" parent="." index="1" instance=ExtResource("2_xp7ls")]
-position = Vector2(240, 135)
+[node name="Background" type="Sprite2D" parent="." index="1"]
+clip_children = 2
+z_index = -5
+texture_repeat = 2
+texture = ExtResource("5_044kv")
+region_enabled = true
+region_rect = Rect2(0, 0, 720, 405)
+
+[node name="Player" parent="." index="2" instance=ExtResource("2_xp7ls")]
 scale = Vector2(0.941667, 0.888889)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+
+[node name="Border" type="Line2D" parent="StaticBody2D" index="0"]
+position = Vector2(-240, -135)
+points = PackedVector2Array(-125, -68, 600, -68, 600, 338, -120, 337, -120, -73)
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+position = Vector2(0, 203)
+shape = SubResource("WorldBoundaryShape2D_6opex")
+
+[node name="CollisionShape5" type="CollisionShape2D" parent="StaticBody2D" index="2"]
+position = Vector2(0, -203)
+shape = SubResource("WorldBoundaryShape2D_3afsn")
+
+[node name="CollisionShape3" type="CollisionShape2D" parent="StaticBody2D" index="3"]
+position = Vector2(-360, 0)
+shape = SubResource("WorldBoundaryShape2D_rrvet")
+
+[node name="CollisionShape4" type="CollisionShape2D" parent="StaticBody2D" index="4"]
+position = Vector2(360, 0)
+shape = SubResource("WorldBoundaryShape2D_10laq")

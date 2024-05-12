@@ -1,7 +1,7 @@
 class_name Camera extends Camera2D
 
 @export var mouse_strength = 0.08
-@export var look_strength = 20.0
+@export var look_strength = 15.0
 @export var impact_rotation = 5.0
 @export var offset_smoothing = 10.0
 @export var shake_damping_speed = 1.0
