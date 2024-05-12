@@ -19,5 +19,6 @@ self_modulate = Color(1, 0, 0, 1)
 texture = ExtResource("3_nwaw7")
 scale_dynamics_enabled = false
 scale_dynamics = SubResource("Resource_r1pcb")
+shadow_enabled = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

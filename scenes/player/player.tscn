@@ -43,12 +43,13 @@ script = ExtResource("1_vyoty")
 
 [node name="Sprite" parent="Anchor" instance=ExtResource("2_mqt8p")]
 texture = ExtResource("2_yh2kd")
+shadow_enabled = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kvp4s")
 
 [node name="Trail" type="GPUParticles2D" parent="."]
-z_index = -1
+z_index = -2
 amount = 6
 process_material = SubResource("ParticleProcessMaterial_orxw6")
 texture = ExtResource("3_727t6")

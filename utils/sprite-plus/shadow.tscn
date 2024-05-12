@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b50f34lb56gwc"]
+
+[ext_resource type="Texture2D" uid="uid://d201gkbx20gxv" path="res://assets/player.png" id="1_rcvoc"]
+
+[node name="Shadow" type="Sprite2D"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+texture = ExtResource("1_rcvoc")
