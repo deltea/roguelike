@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5s0rpbcs5cbn"]
+
+[ext_resource type="PackedScene" uid="uid://ci7sgydfvjpir" path="res://scenes/weapon/weapon.tscn" id="1_jrc5s"]
+[ext_resource type="Script" path="res://scenes/weapon/gun/gun_weapon.gd" id="2_nfvpo"]
+[ext_resource type="PackedScene" uid="uid://d1kk60ttmfv64" path="res://scenes/bullet/bullet.tscn" id="3_eqpgy"]
+
+[node name="GunWeapon" instance=ExtResource("1_jrc5s")]
+script = ExtResource("2_nfvpo")
+bullet_speed = 400.0
+bullet_health = 1
+bullet_count = 1
+spread = 10.0
+fire_point_offset = 8.0
+player_knockback = 10.0
+fire_rate = 5.0
+sound = null
+bullet_scene = ExtResource("3_eqpgy")
+
+[connection signal="use" from="." to="." method="_on_use"]

@@ -9,7 +9,7 @@ func _ready() -> void:
 	set_filter()
 
 func set_filter():
-	if !palette:
+	if not palette:
 		printerr("🎨 No color palette provided for the current room! Set a default color palette or set a color palette for the room.")
 		return
 

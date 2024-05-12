@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bd83eudc7bcdr"]
+[gd_scene load_steps=13 format=3 uid="uid://bd83eudc7bcdr"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_vyoty"]
 [ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="2_mqt8p"]
 [ext_resource type="Texture2D" uid="uid://d201gkbx20gxv" path="res://assets/player.png" id="2_yh2kd"]
 [ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="3_727t6"]
 [ext_resource type="Script" path="res://scenes/player/weapon_manager.gd" id="5_01c06"]
+[ext_resource type="PackedScene" uid="uid://c5s0rpbcs5cbn" path="res://scenes/weapon/gun/gun_weapon.tscn" id="6_63dr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvp4s"]
 size = Vector2(8, 8)
@@ -55,3 +56,5 @@ draw_order = 0
 
 [node name="WeaponManager" type="Node2D" parent="."]
 script = ExtResource("5_01c06")
+
+[node name="GunWeapon" parent="WeaponManager" instance=ExtResource("6_63dr8")]
