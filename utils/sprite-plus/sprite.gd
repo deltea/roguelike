@@ -11,7 +11,7 @@ signal flash_finished
 @export_group("Drop Shadow")
 @export var shadow_enabled = false
 @export var shadow_color = Color.BLACK
-@export var shadow_offset = Vector2(4, 4)
+@export var shadow_offset = Vector2(0, 5)
 @export var shadow_z = -1
 
 @onready var flash_timer: Timer = $FlashTimer
