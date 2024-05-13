@@ -20,6 +20,7 @@ normal = Vector2(-1, 0)
 
 [node name="Camera" parent="." index="0" instance=ExtResource("4_xx8e1")]
 position = Vector2(240, 135)
+sway_magnitude = 2.5
 
 [node name="Background" type="Sprite2D" parent="." index="1"]
 clip_children = 2

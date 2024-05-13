@@ -10,5 +10,6 @@ z = 0.5
 r = 2.0
 
 [node name="Camera" type="Camera2D"]
+ignore_rotation = false
 script = ExtResource("1_u7eyw")
 follow_dynamics = SubResource("Resource_eoq8u")

@@ -5,6 +5,8 @@ class_name Camera extends Camera2D
 @export var impact_rotation = 5.0
 @export var offset_smoothing = 10.0
 @export var shake_damping_speed = 1.0
+@export var sway_magnitude = 15.0
+@export var sway_speed = 1.0
 @export var follow_dynamics: DynamicsResource
 
 @onready var follow_dynamics_solver: DynamicsSolverVector = Dynamics.create_dynamics_vector(follow_dynamics)
@@ -19,6 +21,7 @@ func _enter_tree() -> void:
 
 func _process(delta: float) -> void:
 	position = follow_dynamics_solver.update(RoomManager.current_room.player.position)
+	rotation_degrees = sin(sway_speed * Clock.time) * sway_magnitude
 
 	var mouse_offset = (get_global_mouse_position() - global_position) * mouse_strength
 	var look_offset = Input.get_vector("left", "right", "up", "down") * look_strength
