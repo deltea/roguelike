@@ -25,7 +25,8 @@ func fire():
 
 	var bullet = bullet_scene.instantiate() as Bullet
 	var direction = (global_position - get_global_mouse_position()).normalized()
-	bullet.rotation = direction.angle()
+	var random_spread = deg_to_rad(randf_range(-spread, spread))
+	bullet.rotation = direction.angle() + random_spread
 	bullet.global_position = global_position - (direction * fire_point_offset)
 	bullet.speed = bullet_speed
 	RoomManager.current_room.add_child(bullet)

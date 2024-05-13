@@ -5,8 +5,8 @@ class_name Camera extends Camera2D
 @export var impact_rotation = 5.0
 @export var offset_smoothing = 10.0
 @export var shake_damping_speed = 1.0
-@export var sway_magnitude = 15.0
-@export var sway_speed = 1.0
+@export var sway_magnitude = 2.5
+@export var sway_speed = 0.5
 @export var follow_dynamics: DynamicsResource
 
 @onready var follow_dynamics_solver: DynamicsSolverVector = Dynamics.create_dynamics_vector(follow_dynamics)
