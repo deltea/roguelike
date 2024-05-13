@@ -5,7 +5,7 @@ class_name GunWeapon extends Weapon
 @export var bullet_count = 1
 @export var spread = 10.0
 @export var fire_point_offset = 8.0
-@export var player_knockback = 10.0
+@export var player_knockback = 50.0
 @export var fire_rate = 5.0
 @export var sound: AudioStream
 @export var bullet_scene: PackedScene
@@ -30,3 +30,5 @@ func fire():
 	bullet.global_position = global_position - (direction * fire_point_offset)
 	bullet.speed = bullet_speed
 	RoomManager.current_room.add_child(bullet)
+
+	RoomManager.current_room.player.knockback(direction, player_knockback)
