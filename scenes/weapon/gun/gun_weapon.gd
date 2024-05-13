@@ -7,14 +7,33 @@ class_name GunWeapon extends Weapon
 @export var fire_point_offset = 8.0
 @export var player_knockback = 50.0
 @export var fire_rate = 5.0
+@export var max_magazine = 5
+@export var reload_time = 1.0
 @export var sound: AudioStream
 @export var bullet_scene: PackedScene
 
-var next_time_to_fire = 0.0
+@onready var reload_bar: Sprite2D = $ReloadBar
+@onready var reload_indicator: Sprite2D = $ReloadBar/ReloadIndicator
 
-func _process(_delta: float) -> void:
-	if is_using and Clock.time >= next_time_to_fire:
+var next_time_to_fire = 0.0
+var magazine = max_magazine
+var is_reloading = false
+var reload_timer = 0.0
+
+func _ready() -> void:
+	reload_bar.visible = false
+
+func _process(delta: float) -> void:
+	if is_using and Clock.time >= next_time_to_fire and not is_reloading:
 		fire()
+
+	if is_reloading:
+		reload_timer += delta
+		reload_indicator.position.x = reload_timer / reload_time * 14 - 7
+		if reload_timer >= reload_time:
+			magazine = max_magazine
+			reload_bar.visible = false
+			is_reloading = false
 
 func fire():
 	if not bullet_scene:
@@ -44,3 +63,9 @@ func fire():
 
 	if RoomManager.current_room:
 		RoomManager.current_room.player.knockback(direction, player_knockback)
+
+	magazine -= 1
+	if magazine == 0:
+		reload_timer = 0.0
+		reload_bar.visible = true
+		is_reloading = true

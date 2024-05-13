@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5s0rpbcs5cbn"]
+[gd_scene load_steps=6 format=3 uid="uid://c5s0rpbcs5cbn"]
 
 [ext_resource type="PackedScene" uid="uid://ci7sgydfvjpir" path="res://scenes/weapon/weapon.tscn" id="1_jrc5s"]
 [ext_resource type="Script" path="res://scenes/weapon/gun/gun_weapon.gd" id="2_nfvpo"]
 [ext_resource type="PackedScene" uid="uid://d1kk60ttmfv64" path="res://scenes/bullet/bullet.tscn" id="3_eqpgy"]
+[ext_resource type="Texture2D" uid="uid://bje2ohll76v75" path="res://assets/reload-bar.png" id="4_j0ypq"]
+[ext_resource type="Texture2D" uid="uid://cp36u2vvo3l6b" path="res://assets/reload-indicator.png" id="5_uptv4"]
 
 [node name="GunWeapon" instance=ExtResource("1_jrc5s")]
 script = ExtResource("2_nfvpo")
@@ -15,5 +17,20 @@ player_knockback = 50.0
 fire_rate = 5.0
 sound = null
 bullet_scene = ExtResource("3_eqpgy")
+
+[node name="ReloadBar" type="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -14)
+texture = ExtResource("4_j0ypq")
+
+[node name="ReloadIndicator" type="Sprite2D" parent="ReloadBar" index="0"]
+position = Vector2(-7, 0)
+texture = ExtResource("5_uptv4")
+
+[node name="Shadow" type="Sprite2D" parent="ReloadBar" index="1"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(0, 2)
+texture = ExtResource("4_j0ypq")
 
 [connection signal="use" from="." to="." method="_on_use"]
