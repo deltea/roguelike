@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck34k28tjhu5o"]
+[gd_scene load_steps=10 format=3 uid="uid://ck34k28tjhu5o"]
 
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
+[ext_resource type="Resource" uid="uid://cndo2bacv3vb" path="res://color-palettes/sashimi.tres" id="2_eh2mh"]
 [ext_resource type="PackedScene" uid="uid://bd83eudc7bcdr" path="res://scenes/player/player.tscn" id="2_xp7ls"]
 [ext_resource type="PackedScene" uid="uid://tta865kvysmp" path="res://scenes/camera/camera.tscn" id="4_xx8e1"]
 [ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
@@ -17,6 +18,7 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [node name="Level" instance=ExtResource("1_1ucq3")]
+palette = ExtResource("2_eh2mh")
 
 [node name="Camera" parent="." index="0" instance=ExtResource("4_xx8e1")]
 position = Vector2(240, 135)
