@@ -9,11 +9,15 @@
 [ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
 [ext_resource type="Shader" path="res://rooms/solid_color.gdshader" id="7_ktcbd"]
 [ext_resource type="PackedScene" uid="uid://dourirdy7yub1" path="res://assets/models/lock.glb" id="7_mbvov"]
-[ext_resource type="Script" path="res://assets/models/lock.gd" id="9_o0fg6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4f8p"]
 shader = ExtResource("7_ktcbd")
 shader_parameter/new_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kx31n"]
+resource_local_to_scene = true
+shader = ExtResource("7_ktcbd")
+shader_parameter/new_color = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6opex"]
 
@@ -47,14 +51,18 @@ scale = Vector2(0.941667, 0.888889)
 [node name="Model" type="Sprite2D" parent="." index="3"]
 z_index = 10
 material = SubResource("ShaderMaterial_g4f8p")
-position = Vector2(102, 4)
+position = Vector2(261, -110)
+
+[node name="Shadow" type="Sprite2D" parent="Model" index="0"]
+z_index = -1
+material = SubResource("ShaderMaterial_kx31n")
+position = Vector2(0, 5)
 
 [node name="SubViewport" type="SubViewport" parent="." index="4"]
 transparent_bg = true
 size = Vector2i(80, 80)
 
 [node name="Lock" parent="SubViewport" index="0" instance=ExtResource("7_mbvov")]
-script = ExtResource("9_o0fg6")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
