@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck34k28tjhu5o"]
+[gd_scene load_steps=11 format=3 uid="uid://ck34k28tjhu5o"]
 
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
 [ext_resource type="Resource" uid="uid://by4wwkrwrhd4m" path="res://color-palettes/radioactive.tres" id="2_a1i8t"]
 [ext_resource type="PackedScene" uid="uid://bd83eudc7bcdr" path="res://scenes/player/player.tscn" id="2_xp7ls"]
 [ext_resource type="PackedScene" uid="uid://tta865kvysmp" path="res://scenes/camera/camera.tscn" id="4_xx8e1"]
 [ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
+[ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6opex"]
 
@@ -34,30 +35,32 @@ region_rect = Rect2(0, 0, 720, 405)
 [node name="Player" parent="." index="2" instance=ExtResource("2_xp7ls")]
 scale = Vector2(0.941667, 0.888889)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+[node name="Walls" type="StaticBody2D" parent="." index="3"]
+collision_mask = 0
+script = ExtResource("6_mrcnm")
 
-[node name="Border" type="Line2D" parent="StaticBody2D" index="0"]
+[node name="Border" type="Line2D" parent="Walls" index="0"]
 position = Vector2(-240, -135)
 points = PackedVector2Array(-125, -68, 600, -68, 600, 338, -120, 337, -120, -73)
 
-[node name="Shadow" type="Line2D" parent="StaticBody2D/Border" index="0"]
+[node name="Shadow" type="Line2D" parent="Walls/Border" index="0"]
 z_index = -1
 position = Vector2(0, 2)
 points = PackedVector2Array(-125, -68, 600, -68, 600, 338, -120, 337, -120, -73)
 default_color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+[node name="CollisionShape2" type="CollisionShape2D" parent="Walls" index="1"]
 position = Vector2(0, 203)
 shape = SubResource("WorldBoundaryShape2D_6opex")
 
-[node name="CollisionShape5" type="CollisionShape2D" parent="StaticBody2D" index="2"]
+[node name="CollisionShape5" type="CollisionShape2D" parent="Walls" index="2"]
 position = Vector2(0, -203)
 shape = SubResource("WorldBoundaryShape2D_3afsn")
 
-[node name="CollisionShape3" type="CollisionShape2D" parent="StaticBody2D" index="3"]
+[node name="CollisionShape3" type="CollisionShape2D" parent="Walls" index="3"]
 position = Vector2(-360, 0)
 shape = SubResource("WorldBoundaryShape2D_rrvet")
 
-[node name="CollisionShape4" type="CollisionShape2D" parent="StaticBody2D" index="4"]
+[node name="CollisionShape4" type="CollisionShape2D" parent="Walls" index="4"]
 position = Vector2(360, 0)
 shape = SubResource("WorldBoundaryShape2D_10laq")

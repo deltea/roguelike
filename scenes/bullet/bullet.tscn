@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1kk60ttmfv64"]
+[gd_scene load_steps=7 format=3 uid="uid://d1kk60ttmfv64"]
 
 [ext_resource type="Script" path="res://scenes/bullet/bullet.gd" id="1_b6hce"]
 [ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="2_hkvm8"]
@@ -11,7 +11,13 @@ f = 4.0
 z = 0.2
 r = 2.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csoy1"]
+radius = 8.0
+height = 24.0
+
 [node name="Bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_b6hce")
 
 [node name="Sprite" parent="." instance=ExtResource("2_hkvm8")]
@@ -22,3 +28,7 @@ scale_dynamics = SubResource("Resource_r1pcb")
 shadow_enabled = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_csoy1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

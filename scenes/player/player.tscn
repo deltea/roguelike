@@ -37,6 +37,8 @@ color = Color(1, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_vyoty")
 
 [node name="Anchor" type="Node2D" parent="."]
