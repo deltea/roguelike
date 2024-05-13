@@ -23,14 +23,24 @@ func fire():
 
 	next_time_to_fire = Clock.time + 1.0 / fire_rate
 
-	var bullet = bullet_scene.instantiate() as Bullet
 	var direction = (global_position - get_global_mouse_position()).normalized()
-	var random_spread = deg_to_rad(randf_range(-spread, spread))
-	bullet.rotation = direction.angle() + random_spread
-	bullet.global_position = global_position - (direction * fire_point_offset)
-	bullet.speed = bullet_speed
-	bullet.health = bullet_health
+	var step = spread / bullet_count
+	var half_spread = spread / 2
+
+	for i in range(bullet_count):
+		var bullet = bullet_scene.instantiate() as Bullet
+
+		if bullet_count > 1:
+			bullet.rotation_degrees = rad_to_deg(direction.angle()) + i * step - (half_spread - half_spread / bullet_count)
+		else:
+			var random_spread = deg_to_rad(randf_range(-spread, spread))
+			bullet.rotation = direction.angle() + random_spread
+
+		bullet.global_position = global_position - (Vector2.from_angle(bullet.rotation) * fire_point_offset)
+		bullet.speed = bullet_speed
+		bullet.health = bullet_health
+
+		if RoomManager.current_room: RoomManager.current_room.add_child(bullet)
 
 	if RoomManager.current_room:
-		RoomManager.current_room.add_child(bullet)
 		RoomManager.current_room.player.knockback(direction, player_knockback)

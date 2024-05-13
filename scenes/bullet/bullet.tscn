@@ -7,8 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_r1pcb"]
 script = ExtResource("4_s6hq3")
-f = 8.0
-z = 1.0
+f = 4.0
+z = 0.2
 r = 2.0
 
 [node name="Bullet" type="Area2D"]
