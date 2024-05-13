@@ -31,6 +31,10 @@ window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="viewport"
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 left={
