@@ -22,6 +22,7 @@ PaletteFilter="*res://autoloads/palette_filter.tscn"
 Dynamics="*res://utils/dynamics/dynamics.gd"
 Clock="*res://autoloads/clock.gd"
 GlobalCanvas="*res://autoloads/global_canvas.tscn"
+UpgradeManager="*res://autoloads/upgrade_manager.tscn"
 
 [display]
 

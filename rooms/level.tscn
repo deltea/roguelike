@@ -1,23 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://ck34k28tjhu5o"]
+[gd_scene load_steps=12 format=3 uid="uid://ck34k28tjhu5o"]
 
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
 [ext_resource type="Script" path="res://rooms/level.gd" id="2_8bbte"]
-[ext_resource type="Resource" uid="uid://by4wwkrwrhd4m" path="res://color-palettes/radioactive.tres" id="2_a1i8t"]
 [ext_resource type="PackedScene" uid="uid://bd83eudc7bcdr" path="res://scenes/player/player.tscn" id="2_xp7ls"]
+[ext_resource type="Resource" uid="uid://ogiyy25xpyhu" path="res://color-palettes/razzmatazz.tres" id="3_k3xqc"]
 [ext_resource type="PackedScene" uid="uid://tta865kvysmp" path="res://scenes/camera/camera.tscn" id="4_xx8e1"]
 [ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
-[ext_resource type="Shader" path="res://rooms/solid_color.gdshader" id="7_ktcbd"]
-[ext_resource type="PackedScene" uid="uid://dourirdy7yub1" path="res://assets/models/lock.glb" id="7_mbvov"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4f8p"]
-shader = ExtResource("7_ktcbd")
-shader_parameter/new_color = Color(1, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kx31n"]
-resource_local_to_scene = true
-shader = ExtResource("7_ktcbd")
-shader_parameter/new_color = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6opex"]
 
@@ -32,7 +21,7 @@ normal = Vector2(-1, 0)
 
 [node name="Level" instance=ExtResource("1_1ucq3")]
 script = ExtResource("2_8bbte")
-palette = ExtResource("2_a1i8t")
+palette = ExtResource("3_k3xqc")
 
 [node name="Camera" parent="." index="0" instance=ExtResource("4_xx8e1")]
 position = Vector2(240, 135)
@@ -48,28 +37,7 @@ region_rect = Rect2(0, 0, 720, 405)
 [node name="Player" parent="." index="2" instance=ExtResource("2_xp7ls")]
 scale = Vector2(0.941667, 0.888889)
 
-[node name="Model" type="Sprite2D" parent="." index="3"]
-z_index = 10
-material = SubResource("ShaderMaterial_g4f8p")
-position = Vector2(261, -110)
-
-[node name="Shadow" type="Sprite2D" parent="Model" index="0"]
-z_index = -1
-material = SubResource("ShaderMaterial_kx31n")
-position = Vector2(0, 5)
-
-[node name="SubViewport" type="SubViewport" parent="." index="4"]
-transparent_bg = true
-size = Vector2i(80, 80)
-
-[node name="Lock" parent="SubViewport" index="0" instance=ExtResource("7_mbvov")]
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-projection = 1
-size = 5.0
-
-[node name="Walls" type="StaticBody2D" parent="." index="5"]
+[node name="Walls" type="StaticBody2D" parent="." index="3"]
 collision_mask = 0
 script = ExtResource("6_mrcnm")
 
