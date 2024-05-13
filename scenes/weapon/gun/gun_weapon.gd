@@ -29,6 +29,8 @@ func fire():
 	bullet.rotation = direction.angle() + random_spread
 	bullet.global_position = global_position - (direction * fire_point_offset)
 	bullet.speed = bullet_speed
-	RoomManager.current_room.add_child(bullet)
+	bullet.health = bullet_health
 
-	RoomManager.current_room.player.knockback(direction, player_knockback)
+	if RoomManager.current_room:
+		RoomManager.current_room.add_child(bullet)
+		RoomManager.current_room.player.knockback(direction, player_knockback)
