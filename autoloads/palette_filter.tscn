@@ -26,3 +26,4 @@ default_palette = ExtResource("2_ghxjt")
 material = SubResource("ShaderMaterial_vwk1t")
 offset_right = 480.0
 offset_bottom = 270.0
+mouse_filter = 2

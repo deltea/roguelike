@@ -8,6 +8,7 @@
 [node name="Cursor" type="TextureRect" parent="."]
 offset_right = 16.0
 offset_bottom = 16.0
+mouse_filter = 2
 texture = ExtResource("1_oxluv")
 stretch_mode = 2
 script = ExtResource("2_w65ay")
@@ -15,8 +16,10 @@ script = ExtResource("2_w65ay")
 [node name="Shadow" type="TextureRect" parent="Cursor"]
 self_modulate = Color(0, 0, 0, 1)
 z_index = -1
+layout_mode = 0
 offset_top = 2.0
 offset_right = 16.0
 offset_bottom = 18.0
+mouse_filter = 2
 texture = ExtResource("1_oxluv")
 stretch_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck34k28tjhu5o"]
+[gd_scene load_steps=13 format=3 uid="uid://ck34k28tjhu5o"]
 
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
 [ext_resource type="Script" path="res://rooms/level.gd" id="2_8bbte"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tta865kvysmp" path="res://scenes/camera/camera.tscn" id="4_xx8e1"]
 [ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
+[ext_resource type="PackedScene" uid="uid://cyo41grvmjqs0" path="res://scenes/shop/shop.tscn" id="8_wg1hu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6opex"]
 
@@ -66,3 +67,5 @@ shape = SubResource("WorldBoundaryShape2D_rrvet")
 [node name="CollisionShape4" type="CollisionShape2D" parent="Walls" index="4"]
 position = Vector2(360, 0)
 shape = SubResource("WorldBoundaryShape2D_10laq")
+
+[node name="Shop" parent="." index="4" instance=ExtResource("8_wg1hu")]

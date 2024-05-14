@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3hgll621poe8"]
+
+[ext_resource type="Script" path="res://scenes/card-row/card_row.gd" id="1_kkt7i"]
+
+[node name="CardRow" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kkt7i")
