@@ -29,9 +29,9 @@ func get_hurt(damage: int):
 func die():
 	queue_free()
 
-	Clock.hitstop(0.05)
+	Clock.hitstop(0.1)
 	if RoomManager.current_room:
-		RoomManager.current_room.camera.shake(0.05, 3)
+		RoomManager.current_room.camera.shake(0.05, 2)
 
 	if coin_scene:
 		for i in range(randi_range(coin_drop_min, coin_drop_max)):

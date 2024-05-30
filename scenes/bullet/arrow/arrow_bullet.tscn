@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqi518f6nphvq"]
+
+[ext_resource type="PackedScene" uid="uid://d1kk60ttmfv64" path="res://scenes/bullet/bullet.tscn" id="1_tlscu"]
+[ext_resource type="Texture2D" uid="uid://oy5rrotc320u" path="res://assets/bullets/arrow.png" id="2_3tac7"]
+
+[node name="ArrowBullet" instance=ExtResource("1_tlscu")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_3tac7")

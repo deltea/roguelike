@@ -3,6 +3,7 @@ class_name GunWeapon extends Weapon
 const bullet_speed = 400.0
 const bullet_health = 1
 const bullet_count = 1
+const bullet_damage = 1
 const spread = 8.0
 const fire_point_offset = 8.0
 const player_knockback = 50.0
@@ -58,6 +59,7 @@ func fire():
 			bullet.rotation = direction.angle() + random_spread
 
 		bullet.global_position = global_position - (Vector2.from_angle(bullet.rotation) * fire_point_offset)
+		bullet.damage = bullet_damage
 		bullet.speed = bullet_speed
 		bullet.health = bullet_health
 
