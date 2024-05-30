@@ -12,8 +12,8 @@ size = Vector2(16, 16)
 
 [node name="BasicEnemy" instance=ExtResource("1_cn42y")]
 script = ExtResource("2_w3jgt")
-spin_speed = 200.0
-move_speed = 25.0
+spin_speed = 80.0
+move_speed = 10.0
 
 [node name="Sprite" parent="." index="0"]
 self_modulate = Color(0, 1, 0, 1)

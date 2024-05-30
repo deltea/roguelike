@@ -2,6 +2,8 @@ class_name Sprite extends Sprite2D
 
 signal flash_finished
 
+const shadow_offset_direction = Vector2(0, 1)
+
 @export_group("Dynamics")
 @export var scale_dynamics_enabled = true
 @export var scale_dynamics: DynamicsResource
@@ -11,7 +13,7 @@ signal flash_finished
 @export_group("Drop Shadow")
 @export var shadow_enabled = false
 @export var shadow_color = Color.BLACK
-@export var shadow_offset = Vector2(0, 5)
+@export var shadow_offset = 6.0
 @export var shadow_z = -1
 
 @onready var flash_timer: Timer = $FlashTimer
@@ -45,7 +47,7 @@ func _process(_delta: float) -> void:
 		rotation_degrees = target_rotation_degrees
 
 	if shadow:
-		shadow.global_position = global_position + shadow_offset
+		shadow.global_position = global_position + shadow_offset_direction * shadow_offset
 		shadow.global_rotation = global_rotation
 		shadow.global_scale = global_scale
 

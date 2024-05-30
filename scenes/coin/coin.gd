@@ -1,18 +1,18 @@
 class_name Coin extends Area2D
 
-const spin_speed = 200.0
+const SPIN_SPEED = 200.0
 
 @onready var sprite: Sprite = $Sprite
 
 var velocity = Vector2.ZERO
 
 func _ready() -> void:
-	velocity = Vector2.from_angle(randf() * PI*2) * 300.0
+	velocity = Vector2.from_angle(randf() * PI*2) * 400.0
 
 func _process(delta: float) -> void:
-	sprite.target_rotation_degrees += spin_speed * delta
+	sprite.target_rotation_degrees += SPIN_SPEED * delta
 	global_position += velocity * delta
-	velocity = velocity.lerp(Vector2.ZERO, 10 * delta)
+	velocity = velocity.lerp(Vector2.ZERO, 5 * delta)
 
 func collect():
 	sprite.target_scale = Vector2.ONE * 1.5

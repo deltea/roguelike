@@ -1,15 +1,15 @@
 class_name GunWeapon extends Weapon
 
-const bullet_speed = 400.0
-const bullet_health = 1
-const bullet_count = 1
-const bullet_damage = 1
-const spread = 8.0
-const fire_point_offset = 8.0
-const player_knockback = 50.0
-const fire_rate = 5.0
-const max_magazine = 10
-const reload_time = 1.0
+const BULLET_SPEED = 400.0
+const BULLET_HEALTH = 1
+const BULLET_COUNT = 1
+const BULLET_DAMAGE = 1
+const SPREAD = 8.0
+const FIRE_POINT_OFFSET = 8.0
+const PLAYER_KNOCKBACK = 50.0
+const FIRE_RATE = 5.0
+const MAX_MAGAZINE = 10
+const RELOAD_TIME = 1.0
 @export var sound: AudioStream
 @export var bullet_scene: PackedScene
 
@@ -18,7 +18,7 @@ const reload_time = 1.0
 @onready var muzzle_flash: Sprite2D = $MuzzleFlash
 
 var next_time_to_fire = 0.0
-var magazine = max_magazine
+var magazine = MAX_MAGAZINE
 var is_reloading = false
 var reload_timer = 0.0
 
@@ -32,9 +32,9 @@ func _process(delta: float) -> void:
 
 	if is_reloading:
 		reload_timer += delta
-		reload_indicator.position.x = reload_timer / reload_time * 14 - 7
-		if reload_timer >= reload_time:
-			magazine = max_magazine
+		reload_indicator.position.x = reload_timer / RELOAD_TIME * 14 - 7
+		if reload_timer >= RELOAD_TIME:
+			magazine = MAX_MAGAZINE
 			reload_bar.visible = false
 			is_reloading = false
 
@@ -43,30 +43,30 @@ func fire():
 		printerr("🚅 No bullet scene specified! Bullet will not spawn.")
 		return
 
-	next_time_to_fire = Clock.time + 1.0 / fire_rate
+	next_time_to_fire = Clock.time + 1.0 / FIRE_RATE
 
 	var direction = (global_position - get_global_mouse_position()).normalized()
-	var step = spread / bullet_count
-	var half_spread = spread / 2
+	var step = SPREAD / BULLET_COUNT
+	var half_spread = SPREAD / 2
 
-	for i in range(bullet_count):
+	for i in range(BULLET_COUNT):
 		var bullet = bullet_scene.instantiate() as Bullet
 
-		if bullet_count > 1:
-			bullet.rotation_degrees = rad_to_deg(direction.angle()) + i * step - (half_spread - half_spread / bullet_count)
+		if BULLET_COUNT > 1:
+			bullet.rotation_degrees = rad_to_deg(direction.angle()) + i * step - (half_spread - half_spread / BULLET_COUNT)
 		else:
-			var random_spread = deg_to_rad(randf_range(-spread, spread))
+			var random_spread = deg_to_rad(randf_range(-SPREAD, SPREAD))
 			bullet.rotation = direction.angle() + random_spread
 
-		bullet.global_position = global_position - (Vector2.from_angle(bullet.rotation) * fire_point_offset)
-		bullet.damage = bullet_damage
-		bullet.speed = bullet_speed
-		bullet.health = bullet_health
+		bullet.global_position = global_position - (Vector2.from_angle(bullet.rotation) * FIRE_POINT_OFFSET)
+		bullet.damage = BULLET_DAMAGE
+		bullet.speed = BULLET_SPEED
+		bullet.health = BULLET_HEALTH
 
 		if RoomManager.current_room: RoomManager.current_room.add_child(bullet)
 
 	if RoomManager.current_room:
-		RoomManager.current_room.player.knockback(direction, player_knockback)
+		RoomManager.current_room.player.knockback(direction, PLAYER_KNOCKBACK)
 		RoomManager.current_room.camera.shake(0.05, 1)
 
 	muzzle_flash.position = -direction * 8
