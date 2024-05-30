@@ -9,9 +9,8 @@ func _process(delta: float) -> void:
 	super._process(delta)
 
 	sprite.target_rotation_degrees += spin_speed * spin_direction * delta
-	if RoomManager.current_room:
-		var direction = (RoomManager.current_room.player.global_position - global_position).normalized()
-		velocity = direction * move_speed + knockback_velocity
+	var direction = (RoomManager.current_room.player.global_position - global_position).normalized()
+	velocity = direction * move_speed + knockback_velocity
 
 	move_and_slide()
 

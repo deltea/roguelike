@@ -31,7 +31,7 @@ func get_hurt(damage: int):
 func die():
 	queue_free()
 
-	Clock.hitstop(0.1)
+	Clock.hitstop(0.05)
 	if RoomManager.current_room:
 		RoomManager.current_room.camera.shake(0.05, 2)
 
