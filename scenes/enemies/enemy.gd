@@ -11,6 +11,8 @@ class_name Enemy extends CharacterBody2D
 var health = max_health
 var knockback_velocity = Vector2.ZERO
 
+var particles_scene = preload("res://particles/enemy-explosion.tscn")
+
 func _process(delta: float) -> void:
 	knockback_velocity = knockback_velocity.lerp(Vector2.ZERO, 10 * delta)
 
@@ -32,6 +34,12 @@ func die():
 	Clock.hitstop(0.1)
 	if RoomManager.current_room:
 		RoomManager.current_room.camera.shake(0.05, 2)
+
+	var particles = particles_scene.instantiate() as CPUParticles2D
+	particles.global_position = global_position
+	particles.emitting = true
+	particles.finished.connect(particles.queue_free)
+	RoomManager.current_room.add_child(particles)
 
 	if coin_scene:
 		for i in range(randi_range(coin_drop_min, coin_drop_max)):
