@@ -34,13 +34,12 @@ texture_repeat = 2
 texture = ExtResource("5_044kv")
 region_enabled = true
 region_rect = Rect2(0, 0, 720, 405)
+metadata/_edit_lock_ = true
 
-[node name="Player" parent="." index="2" instance=ExtResource("2_xp7ls")]
-scale = Vector2(0.941667, 0.888889)
-
-[node name="Walls" type="StaticBody2D" parent="." index="3"]
+[node name="Walls" type="StaticBody2D" parent="." index="2"]
 collision_mask = 0
 script = ExtResource("6_mrcnm")
+metadata/_edit_lock_ = true
 
 [node name="Border" type="Line2D" parent="Walls" index="0"]
 position = Vector2(-240, -135)
@@ -68,8 +67,41 @@ shape = SubResource("WorldBoundaryShape2D_rrvet")
 position = Vector2(360, 0)
 shape = SubResource("WorldBoundaryShape2D_10laq")
 
+[node name="Player" parent="." index="3" instance=ExtResource("2_xp7ls")]
+scale = Vector2(0.941667, 0.888889)
+
 [node name="BasicEnemy" parent="." index="4" instance=ExtResource("8_px6m8")]
-position = Vector2(71, -93)
+position = Vector2(-152, -93)
 collision_mask = 13
-spin_speed = 200.0
-move_speed = 25.0
+
+[node name="BasicEnemy2" parent="." index="5" instance=ExtResource("8_px6m8")]
+position = Vector2(-181, 89)
+collision_mask = 13
+
+[node name="BasicEnemy3" parent="." index="6" instance=ExtResource("8_px6m8")]
+position = Vector2(125, 152)
+collision_mask = 13
+
+[node name="BasicEnemy4" parent="." index="7" instance=ExtResource("8_px6m8")]
+position = Vector2(187, -99)
+collision_mask = 13
+
+[node name="BasicEnemy5" parent="." index="8" instance=ExtResource("8_px6m8")]
+position = Vector2(-96, 23)
+collision_mask = 13
+
+[node name="BasicEnemy6" parent="." index="9" instance=ExtResource("8_px6m8")]
+position = Vector2(123, 21)
+collision_mask = 13
+
+[node name="BasicEnemy7" parent="." index="10" instance=ExtResource("8_px6m8")]
+position = Vector2(212, 57)
+collision_mask = 13
+
+[node name="BasicEnemy8" parent="." index="11" instance=ExtResource("8_px6m8")]
+position = Vector2(-2, -94)
+collision_mask = 13
+
+[node name="BasicEnemy9" parent="." index="12" instance=ExtResource("8_px6m8")]
+position = Vector2(-24, 150)
+collision_mask = 13
