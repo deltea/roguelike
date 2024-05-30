@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
 [ext_resource type="Script" path="res://rooms/level.gd" id="2_8bbte"]
 [ext_resource type="PackedScene" uid="uid://bd83eudc7bcdr" path="res://scenes/player/player.tscn" id="2_xp7ls"]
-[ext_resource type="Resource" uid="uid://ogiyy25xpyhu" path="res://color-palettes/razzmatazz.tres" id="3_k3xqc"]
+[ext_resource type="Resource" uid="uid://b3t85hjvw5myu" path="res://color-palettes/classic.tres" id="3_rxxb8"]
 [ext_resource type="PackedScene" uid="uid://tta865kvysmp" path="res://scenes/camera/camera.tscn" id="4_xx8e1"]
 [ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
@@ -22,7 +22,7 @@ normal = Vector2(-1, 0)
 
 [node name="Level" instance=ExtResource("1_1ucq3")]
 script = ExtResource("2_8bbte")
-palette = ExtResource("3_k3xqc")
+palette = ExtResource("3_rxxb8")
 
 [node name="Camera" parent="." index="0" instance=ExtResource("4_xx8e1")]
 position = Vector2(240, 135)
