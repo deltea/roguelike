@@ -2,6 +2,7 @@ class_name Bullet extends Area2D
 
 var speed = 0.0
 var health = 1
+var damage = 1
 
 var particles_scene = preload("res://particles/explosion.tscn")
 
@@ -11,6 +12,11 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	position += Vector2.from_angle(rotation + PI) * speed * delta
+
+func get_hit():
+	health -= 1
+	if health <= 0:
+		queue_free()
 
 func _on_body_entered(body: Node2D):
 	if body is Walls:

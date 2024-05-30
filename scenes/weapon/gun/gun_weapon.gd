@@ -1,14 +1,14 @@
 class_name GunWeapon extends Weapon
 
-@export var bullet_speed = 400.0
-@export var bullet_health = 1
-@export var bullet_count = 1
-@export var spread = 10.0
-@export var fire_point_offset = 8.0
-@export var player_knockback = 50.0
-@export var fire_rate = 5.0
-@export var max_magazine = 5
-@export var reload_time = 1.0
+const bullet_speed = 400.0
+const bullet_health = 1
+const bullet_count = 1
+const spread = 8.0
+const fire_point_offset = 8.0
+const player_knockback = 50.0
+const fire_rate = 5.0
+const max_magazine = 10
+const reload_time = 1.0
 @export var sound: AudioStream
 @export var bullet_scene: PackedScene
 

@@ -9,21 +9,10 @@
 
 [node name="GunWeapon" instance=ExtResource("1_jrc5s")]
 script = ExtResource("2_nfvpo")
-bullet_speed = 400.0
-bullet_health = 1
-bullet_count = 1
-spread = 10.0
-fire_point_offset = 8.0
-player_knockback = 50.0
-fire_rate = 5.0
-max_magazine = 5
-reload_time = 1.0
 sound = null
 bullet_scene = ExtResource("3_eqpgy")
 
 [node name="MuzzleFlash" type="Sprite2D" parent="." index="0"]
-self_modulate = Color(1, 0, 0, 1)
-z_index = -1
 texture = ExtResource("4_sdgdm")
 
 [node name="Shadow" type="Sprite2D" parent="MuzzleFlash" index="0"]
