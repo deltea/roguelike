@@ -14,6 +14,7 @@ class_name GunWeapon extends Weapon
 
 @onready var reload_bar: Sprite2D = $ReloadBar
 @onready var reload_indicator: Sprite2D = $ReloadBar/ReloadIndicator
+@onready var muzzle_flash: Sprite2D = $MuzzleFlash
 
 var next_time_to_fire = 0.0
 var magazine = max_magazine
@@ -22,6 +23,7 @@ var reload_timer = 0.0
 
 func _ready() -> void:
 	reload_bar.visible = false
+	muzzle_flash.visible = false
 
 func _process(delta: float) -> void:
 	if is_using and Clock.time >= next_time_to_fire and not is_reloading:
@@ -63,9 +65,18 @@ func fire():
 
 	if RoomManager.current_room:
 		RoomManager.current_room.player.knockback(direction, player_knockback)
+		RoomManager.current_room.camera.shake(0.05, 1)
+
+	muzzle_flash.position = -direction * 8
+	flash_muzzle()
 
 	magazine -= 1
 	if magazine == 0:
 		reload_timer = 0.0
 		reload_bar.visible = true
 		is_reloading = true
+
+func flash_muzzle():
+	muzzle_flash.visible = true
+	await Clock.wait(0.065)
+	muzzle_flash.visible = false

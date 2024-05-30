@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/bullet/bullet.gd" id="1_b6hce"]
 [ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="2_hkvm8"]
-[ext_resource type="Texture2D" uid="uid://770jnhrdtw4n" path="res://assets/bullets/bullet.png" id="3_nwaw7"]
+[ext_resource type="Texture2D" uid="uid://wjllgmlyo8iq" path="res://assets/bullets/small-bullet.png" id="3_ke2hp"]
 [ext_resource type="Script" path="res://utils/dynamics/dynamics_resource.gd" id="4_s6hq3"]
 
 [sub_resource type="Resource" id="Resource_r1pcb"]
@@ -22,7 +22,7 @@ script = ExtResource("1_b6hce")
 
 [node name="Sprite" parent="." instance=ExtResource("2_hkvm8")]
 self_modulate = Color(1, 0, 0, 1)
-texture = ExtResource("3_nwaw7")
+texture = ExtResource("3_ke2hp")
 scale_dynamics_enabled = false
 scale_dynamics = SubResource("Resource_r1pcb")
 shadow_enabled = true
