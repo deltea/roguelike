@@ -1,1 +1,1 @@
-class_name Shop extends Control
+class_name Shop extends Node2D

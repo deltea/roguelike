@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/coin/coin.gd" id="1_0wef0"]
 [ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="1_218jv"]
-[ext_resource type="Texture2D" uid="uid://cf5k5qof680ly" path="res://assets/coin-alt.png" id="3_ttbrn"]
+[ext_resource type="Texture2D" uid="uid://cf5k5qof680ly" path="res://assets/coin.png" id="3_uq7ct"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ir2b"]
 radius = 40.0
@@ -16,7 +16,7 @@ shape = SubResource("CircleShape2D_3ir2b")
 
 [node name="Sprite" parent="." instance=ExtResource("1_218jv")]
 self_modulate = Color(1, 0, 0, 1)
-texture = ExtResource("3_ttbrn")
+texture = ExtResource("3_uq7ct")
 shadow_enabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
