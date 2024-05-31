@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="2_w65ay"]
 
 [node name="GlobalCanvas" type="CanvasLayer"]
+layer = 2
 
 [node name="Cursor" type="TextureRect" parent="."]
 offset_right = 16.0

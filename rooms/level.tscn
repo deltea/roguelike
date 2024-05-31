@@ -1,15 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://ck34k28tjhu5o"]
+[gd_scene load_steps=19 format=3 uid="uid://ck34k28tjhu5o"]
 
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
 [ext_resource type="Script" path="res://rooms/level.gd" id="2_8bbte"]
 [ext_resource type="PackedScene" uid="uid://bd83eudc7bcdr" path="res://scenes/player/player.tscn" id="2_xp7ls"]
-[ext_resource type="Resource" uid="uid://ogiyy25xpyhu" path="res://color-palettes/razzmatazz.tres" id="3_k3xqc"]
+[ext_resource type="Resource" uid="uid://by4wwkrwrhd4m" path="res://color-palettes/radioactive.tres" id="3_2fuyu"]
 [ext_resource type="PackedScene" uid="uid://tta865kvysmp" path="res://scenes/camera/camera.tscn" id="4_xx8e1"]
 [ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="5_c0v43"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
 [ext_resource type="PackedScene" uid="uid://bwh4ng6ishfd8" path="res://scenes/enemies/basic/basic_enemy.tscn" id="8_px6m8"]
 [ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_s2gwg"]
+[ext_resource type="PackedScene" uid="uid://cyo41grvmjqs0" path="res://scenes/shop/shop.tscn" id="11_vrm2q"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4hw5w"]
 frequency = 0.009
@@ -41,7 +42,7 @@ normal = Vector2(-1, 0)
 
 [node name="Level" instance=ExtResource("1_1ucq3")]
 script = ExtResource("2_8bbte")
-palette = ExtResource("3_k3xqc")
+palette = ExtResource("3_2fuyu")
 
 [node name="Camera" parent="." index="0" instance=ExtResource("4_xx8e1")]
 position = Vector2(240, 135)
@@ -53,6 +54,7 @@ texture_repeat = 2
 texture = ExtResource("5_044kv")
 region_enabled = true
 region_rect = Rect2(0, 0, 720, 405)
+metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="2"]
 
@@ -63,6 +65,7 @@ motion_scale = Vector2(1.25, 1.25)
 material = SubResource("ShaderMaterial_h34y6")
 scale = Vector2(1920, 1080)
 texture = ExtResource("5_c0v43")
+metadata/_edit_lock_ = true
 
 [node name="Walls" type="StaticBody2D" parent="." index="3"]
 collision_mask = 0
@@ -72,12 +75,14 @@ metadata/_edit_lock_ = true
 [node name="Border" type="Line2D" parent="Walls" index="0"]
 position = Vector2(-240, -135)
 points = PackedVector2Array(-125, -68, 600, -68, 600, 338, -120, 337, -120, -73)
+metadata/_edit_lock_ = true
 
 [node name="Shadow" type="Line2D" parent="Walls/Border" index="0"]
 z_index = -1
 position = Vector2(0, 2)
 points = PackedVector2Array(-125, -68, 600, -68, 600, 338, -120, 337, -120, -73)
 default_color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="Walls" index="1"]
 position = Vector2(0, 203)
@@ -98,38 +103,42 @@ shape = SubResource("WorldBoundaryShape2D_10laq")
 [node name="Player" parent="." index="4" instance=ExtResource("2_xp7ls")]
 scale = Vector2(0.941667, 0.888889)
 
-[node name="BasicEnemy" parent="." index="5" instance=ExtResource("8_px6m8")]
+[node name="Enemies" type="Node" parent="." index="5"]
+
+[node name="BasicEnemy" parent="Enemies" index="0" instance=ExtResource("8_px6m8")]
 position = Vector2(-152, -93)
 collision_mask = 13
 
-[node name="BasicEnemy2" parent="." index="6" instance=ExtResource("8_px6m8")]
+[node name="BasicEnemy2" parent="Enemies" index="1" instance=ExtResource("8_px6m8")]
 position = Vector2(-181, 89)
 collision_mask = 13
 
-[node name="BasicEnemy3" parent="." index="7" instance=ExtResource("8_px6m8")]
+[node name="BasicEnemy3" parent="Enemies" index="2" instance=ExtResource("8_px6m8")]
 position = Vector2(125, 152)
 collision_mask = 13
 
-[node name="BasicEnemy4" parent="." index="8" instance=ExtResource("8_px6m8")]
+[node name="BasicEnemy4" parent="Enemies" index="3" instance=ExtResource("8_px6m8")]
 position = Vector2(187, -99)
 collision_mask = 13
 
-[node name="BasicEnemy5" parent="." index="9" instance=ExtResource("8_px6m8")]
+[node name="BasicEnemy5" parent="Enemies" index="4" instance=ExtResource("8_px6m8")]
 position = Vector2(-96, 23)
 collision_mask = 13
 
-[node name="BasicEnemy6" parent="." index="10" instance=ExtResource("8_px6m8")]
+[node name="BasicEnemy6" parent="Enemies" index="5" instance=ExtResource("8_px6m8")]
 position = Vector2(123, 21)
 collision_mask = 13
 
-[node name="BasicEnemy7" parent="." index="11" instance=ExtResource("8_px6m8")]
+[node name="BasicEnemy7" parent="Enemies" index="6" instance=ExtResource("8_px6m8")]
 position = Vector2(212, 57)
 collision_mask = 13
 
-[node name="BasicEnemy8" parent="." index="12" instance=ExtResource("8_px6m8")]
+[node name="BasicEnemy8" parent="Enemies" index="7" instance=ExtResource("8_px6m8")]
 position = Vector2(-2, -94)
 collision_mask = 13
 
-[node name="BasicEnemy9" parent="." index="13" instance=ExtResource("8_px6m8")]
+[node name="BasicEnemy9" parent="Enemies" index="8" instance=ExtResource("8_px6m8")]
 position = Vector2(-24, 150)
 collision_mask = 13
+
+[node name="Shop" parent="." index="6" instance=ExtResource("11_vrm2q")]
