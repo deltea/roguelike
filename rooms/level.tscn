@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ck34k28tjhu5o"]
+[gd_scene load_steps=18 format=3 uid="uid://ck34k28tjhu5o"]
 
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
 [ext_resource type="Script" path="res://rooms/level.gd" id="2_8bbte"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="5_c0v43"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
-[ext_resource type="PackedScene" uid="uid://bwh4ng6ishfd8" path="res://scenes/enemies/basic/basic_enemy.tscn" id="8_px6m8"]
 [ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_s2gwg"]
 [ext_resource type="PackedScene" uid="uid://cyo41grvmjqs0" path="res://scenes/shop/shop.tscn" id="11_vrm2q"]
 
@@ -104,41 +103,5 @@ shape = SubResource("WorldBoundaryShape2D_10laq")
 scale = Vector2(0.941667, 0.888889)
 
 [node name="Enemies" type="Node" parent="." index="5"]
-
-[node name="BasicEnemy" parent="Enemies" index="0" instance=ExtResource("8_px6m8")]
-position = Vector2(-152, -93)
-collision_mask = 13
-
-[node name="BasicEnemy2" parent="Enemies" index="1" instance=ExtResource("8_px6m8")]
-position = Vector2(-181, 89)
-collision_mask = 13
-
-[node name="BasicEnemy3" parent="Enemies" index="2" instance=ExtResource("8_px6m8")]
-position = Vector2(125, 152)
-collision_mask = 13
-
-[node name="BasicEnemy4" parent="Enemies" index="3" instance=ExtResource("8_px6m8")]
-position = Vector2(187, -99)
-collision_mask = 13
-
-[node name="BasicEnemy5" parent="Enemies" index="4" instance=ExtResource("8_px6m8")]
-position = Vector2(-96, 23)
-collision_mask = 13
-
-[node name="BasicEnemy6" parent="Enemies" index="5" instance=ExtResource("8_px6m8")]
-position = Vector2(123, 21)
-collision_mask = 13
-
-[node name="BasicEnemy7" parent="Enemies" index="6" instance=ExtResource("8_px6m8")]
-position = Vector2(212, 57)
-collision_mask = 13
-
-[node name="BasicEnemy8" parent="Enemies" index="7" instance=ExtResource("8_px6m8")]
-position = Vector2(-2, -94)
-collision_mask = 13
-
-[node name="BasicEnemy9" parent="Enemies" index="8" instance=ExtResource("8_px6m8")]
-position = Vector2(-24, 150)
-collision_mask = 13
 
 [node name="Shop" parent="." index="6" instance=ExtResource("11_vrm2q")]

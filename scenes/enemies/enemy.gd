@@ -1,6 +1,7 @@
 class_name Enemy extends CharacterBody2D
 
 @export var max_health = 3
+@export var knockback_magnitude = 200.0
 @export var coin_drop_min = 0
 @export var coin_drop_max = 1
 @export var coin_scene: PackedScene
@@ -11,7 +12,7 @@ class_name Enemy extends CharacterBody2D
 var health = max_health
 var knockback_velocity = Vector2.ZERO
 
-var particles_scene = preload("res://particles/enemy-explosion.tscn")
+var particles_scene = preload ("res://particles/enemy-explosion.tscn")
 
 func _process(delta: float) -> void:
 	knockback_velocity = knockback_velocity.lerp(Vector2.ZERO, 10 * delta)
@@ -54,7 +55,7 @@ func die():
 func _on_hitbox_area_entered(area: Area2D):
 	if area is Bullet:
 		var bullet = area as Bullet
-		knockback(Vector2.from_angle(bullet.rotation), 200)
+		knockback(Vector2.from_angle(bullet.rotation), knockback_magnitude)
 		get_hurt(bullet.damage)
 		bullet.get_hit()
 
