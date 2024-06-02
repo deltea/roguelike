@@ -7,4 +7,3 @@
 script = ExtResource("1_u1c17")
 
 [node name="Gem" parent="." instance=ExtResource("2_rhwba")]
-position = Vector2(9, 11)

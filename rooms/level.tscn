@@ -1,16 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://ck34k28tjhu5o"]
+[gd_scene load_steps=20 format=3 uid="uid://ck34k28tjhu5o"]
 
 [ext_resource type="PackedScene" uid="uid://b6v0b48v07rcx" path="res://rooms/room.tscn" id="1_1ucq3"]
 [ext_resource type="Script" path="res://rooms/level.gd" id="2_8bbte"]
 [ext_resource type="PackedScene" uid="uid://bd83eudc7bcdr" path="res://scenes/player/player.tscn" id="2_xp7ls"]
-[ext_resource type="Resource" uid="uid://by4wwkrwrhd4m" path="res://color-palettes/radioactive.tres" id="3_2fuyu"]
+[ext_resource type="Resource" uid="uid://b5r230hhljguf" path="res://color-palettes/sunset.tres" id="3_47078"]
 [ext_resource type="PackedScene" uid="uid://tta865kvysmp" path="res://scenes/camera/camera.tscn" id="4_xx8e1"]
 [ext_resource type="Texture2D" uid="uid://dihtgemjtr7bu" path="res://assets/background.png" id="5_044kv"]
 [ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="5_c0v43"]
 [ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
 [ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_s2gwg"]
-[ext_resource type="PackedScene" uid="uid://bdgs67hdaqnpf" path="res://scenes/enemies/missile/missile_enemy.tscn" id="10_8dg8b"]
-[ext_resource type="PackedScene" uid="uid://bwh4ng6ishfd8" path="res://scenes/enemies/basic/basic_enemy.tscn" id="11_j811n"]
+[ext_resource type="PackedScene" uid="uid://cyo41grvmjqs0" path="res://scenes/shop/shop.tscn" id="10_6u3sq"]
+[ext_resource type="PackedScene" uid="uid://bwh4ng6ishfd8" path="res://scenes/enemies/basic/basic_enemy.tscn" id="10_uqqsm"]
+[ext_resource type="PackedScene" uid="uid://bdgs67hdaqnpf" path="res://scenes/enemies/missile/missile_enemy.tscn" id="11_c0frg"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4hw5w"]
 frequency = 0.009
@@ -42,7 +43,7 @@ normal = Vector2(-1, 0)
 
 [node name="Level" instance=ExtResource("1_1ucq3")]
 script = ExtResource("2_8bbte")
-palette = ExtResource("3_2fuyu")
+palette = ExtResource("3_47078")
 
 [node name="Camera" parent="." index="0" instance=ExtResource("4_xx8e1")]
 position = Vector2(240, 135)
@@ -105,17 +106,26 @@ scale = Vector2(0.941667, 0.888889)
 
 [node name="Enemies" type="Node" parent="." index="5"]
 
-[node name="MissileEnemy" parent="Enemies" index="0" instance=ExtResource("10_8dg8b")]
-position = Vector2(-156, -52)
+[node name="BasicEnemy" parent="Enemies" index="0" instance=ExtResource("10_uqqsm")]
+position = Vector2(-188, 104)
 
-[node name="BasicEnemy" parent="Enemies" index="1" instance=ExtResource("11_j811n")]
-position = Vector2(-215, 80)
+[node name="BasicEnemy2" parent="Enemies" index="1" instance=ExtResource("10_uqqsm")]
+position = Vector2(-252, -14)
 
-[node name="BasicEnemy2" parent="Enemies" index="2" instance=ExtResource("11_j811n")]
-position = Vector2(-67, 124)
+[node name="BasicEnemy3" parent="Enemies" index="2" instance=ExtResource("10_uqqsm")]
+position = Vector2(-166, -148)
 
-[node name="BasicEnemy3" parent="Enemies" index="3" instance=ExtResource("11_j811n")]
-position = Vector2(228, 127)
+[node name="BasicEnemy4" parent="Enemies" index="3" instance=ExtResource("10_uqqsm")]
+position = Vector2(149, -148)
 
-[node name="BasicEnemy4" parent="Enemies" index="4" instance=ExtResource("11_j811n")]
-position = Vector2(234, -4)
+[node name="BasicEnemy5" parent="Enemies" index="4" instance=ExtResource("10_uqqsm")]
+position = Vector2(227, -4)
+
+[node name="BasicEnemy6" parent="Enemies" index="5" instance=ExtResource("10_uqqsm")]
+position = Vector2(173, 104)
+
+[node name="MissileEnemy" parent="Enemies" index="6" instance=ExtResource("11_c0frg")]
+position = Vector2(0, -140)
+
+[node name="Shop" parent="." index="6" instance=ExtResource("10_6u3sq")]
+position = Vector2(0, 72)
