@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ddl4cwe4ng3gb" path="res://scenes/enemies/enemy.tscn" id="1_cn42y"]
 [ext_resource type="Script" path="res://scenes/enemies/basic/basic_enemy.gd" id="2_w3jgt"]
-[ext_resource type="Texture2D" uid="uid://b1vl7h6ljc2l4" path="res://assets/basic-enemy.png" id="3_443bd"]
+[ext_resource type="Texture2D" uid="uid://b1vl7h6ljc2l4" path="res://assets/enemies/basic-enemy.png" id="3_443bd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2wu3i"]
 radius = 8.06226
@@ -12,13 +12,9 @@ size = Vector2(16, 16)
 
 [node name="BasicEnemy" instance=ExtResource("1_cn42y")]
 script = ExtResource("2_w3jgt")
-spin_speed = 80.0
-move_speed = 10.0
 
 [node name="Sprite" parent="." index="0"]
-self_modulate = Color(0, 1, 0, 1)
 texture = ExtResource("3_443bd")
-shadow_enabled = true
 
 [node name="CollisionShape" parent="." index="1"]
 shape = SubResource("CircleShape2D_2wu3i")

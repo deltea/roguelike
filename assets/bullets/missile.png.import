@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1vl7h6ljc2l4"
-path="res://.godot/imported/basic-enemy.png-dd91c4b86791c35f18ace3ec241aea32.ctex"
+uid="uid://cjxnbbi7aauv8"
+path="res://.godot/imported/missile.png-0dd030efca3de9e7405df3f2566c173a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/basic-enemy.png"
-dest_files=["res://.godot/imported/basic-enemy.png-dd91c4b86791c35f18ace3ec241aea32.ctex"]
+source_file="res://assets/bullets/missile.png"
+dest_files=["res://.godot/imported/missile.png-0dd030efca3de9e7405df3f2566c173a.ctex"]
 
 [params]
 

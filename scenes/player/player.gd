@@ -20,7 +20,7 @@ var dash_velocity = Vector2.ZERO
 var next_time_to_dash = 0.0
 
 func _enter_tree() -> void:
-	if RoomManager.current_room: RoomManager.current_room.set_deferred("player", self)
+	RoomManager.current_room.set_deferred("player", self)
 
 func _physics_process(delta):
 	anchor.rotation = lerp_angle(anchor.rotation, target_rotation, rotation_animation_speed * delta)
@@ -43,8 +43,7 @@ func _physics_process(delta):
 		dash_velocity = input * dash_force
 		next_time_to_dash = Clock.time + 1.0 / dash_rate
 
-		if RoomManager.current_room:
-			RoomManager.current_room.camera.shake(0.1, 1.0)
+		RoomManager.current_room.camera.shake(0.1, 1.0)
 
 	trail.emitting = not input == Vector2.ZERO
 

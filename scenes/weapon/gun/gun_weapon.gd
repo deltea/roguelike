@@ -63,11 +63,10 @@ func fire():
 		bullet.speed = BULLET_SPEED
 		bullet.health = BULLET_HEALTH
 
-		if RoomManager.current_room: RoomManager.current_room.add_child(bullet)
+		RoomManager.current_room.add_child(bullet)
 
-	if RoomManager.current_room:
-		RoomManager.current_room.player.knockback(direction, PLAYER_KNOCKBACK)
-		RoomManager.current_room.camera.shake(0.05, 1)
+	RoomManager.current_room.player.knockback(direction, PLAYER_KNOCKBACK)
+	RoomManager.current_room.camera.shake(0.05, 1)
 
 	muzzle_flash.position = -direction * 8
 	flash_muzzle()

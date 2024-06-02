@@ -10,6 +10,8 @@ script = ExtResource("1_lku2h")
 coin_scene = ExtResource("2_0iwta")
 
 [node name="Sprite" parent="." instance=ExtResource("2_ggup1")]
+self_modulate = Color(0, 1, 0, 1)
+shadow_enabled = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 

@@ -1,5 +1,7 @@
 class_name Bullet extends Area2D
 
+@onready var sprite: Sprite = $Sprite
+
 var speed = 0.0
 var health = 1
 var damage = 1
@@ -25,5 +27,6 @@ func _on_body_entered(body: Node2D):
 		particles.emitting = true
 		particles.finished.connect(particles.queue_free)
 		particles.rotation_degrees = rotation_degrees
+		particles.color = sprite.self_modulate
 		RoomManager.current_room.add_child(particles)
 		queue_free()

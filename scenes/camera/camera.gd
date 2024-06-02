@@ -17,7 +17,7 @@ var shake_offset = Vector2.ZERO
 var target_zoom = Vector2.ONE
 
 func _enter_tree() -> void:
-	if RoomManager.current_room: RoomManager.current_room.set_deferred("camera", self)
+	RoomManager.current_room.set_deferred("camera", self)
 
 func _process(delta: float) -> void:
 	position = follow_dynamics_solver.update(RoomManager.current_room.player.position)

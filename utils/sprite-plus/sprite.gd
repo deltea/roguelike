@@ -1,7 +1,5 @@
 class_name Sprite extends Sprite2D
 
-signal flash_finished
-
 const shadow_offset_direction = Vector2(0, 1)
 
 @export_group("Dynamics")
@@ -16,7 +14,6 @@ const shadow_offset_direction = Vector2(0, 1)
 @export var shadow_offset = 6.0
 @export var shadow_z = -1
 
-@onready var flash_timer: Timer = $FlashTimer
 @onready var scale_dynamics_solver := Dynamics.create_dynamics_vector(scale_dynamics)
 @onready var rotation_dynamics_solver := Dynamics.create_dynamics(rotation_dynamics)
 
@@ -57,17 +54,12 @@ func impact_scale(value: Vector2):
 func impact_rotation(value: float):
 	rotation_dynamics_solver.set_value(value)
 
-func flash(interval: float = 0.1, duration = 0):
-	flash_timer.wait_time = interval
-	flash_timer.start()
-	if duration > 0:
-		await Clock.wait(duration)
-		stop_flash()
+func flash(color: Color, duration: float = 0.1):
+	var prev_color = self_modulate
 
-func stop_flash():
-	flash_finished.emit()
-	flash_timer.stop()
-	visible = true
+	self_modulate = color
+	await Clock.wait(duration)
+	self_modulate = prev_color
 
-func _on_flash_timer_timeout() -> void:
+func _on_blink_timer_timeout() -> void:
 	visible = not visible

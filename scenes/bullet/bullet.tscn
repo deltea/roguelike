@@ -12,8 +12,8 @@ z = 0.2
 r = 2.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csoy1"]
-radius = 8.0
-height = 28.0
+radius = 4.99999
+height = 16.0
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 8

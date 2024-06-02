@@ -28,4 +28,3 @@ angle_min = -180.0
 angle_max = 180.0
 angle_curve = SubResource("Curve_fnfs5")
 scale_amount_curve = SubResource("Curve_vhanu")
-color = Color(1, 0, 0, 1)

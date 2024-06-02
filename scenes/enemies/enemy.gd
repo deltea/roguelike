@@ -24,17 +24,13 @@ func get_hurt(damage: int):
 		die()
 
 	sprite.impact_scale(Vector2.ONE * 1.3)
-
-	sprite.self_modulate = Color.WHITE
-	await Clock.wait(0.1)
-	sprite.self_modulate = Color.GREEN
+	sprite.flash(Color.WHITE)
 
 func die():
 	queue_free()
 
 	Clock.hitstop(0.05)
-	if RoomManager.current_room:
-		RoomManager.current_room.camera.shake(0.05, 2)
+	RoomManager.current_room.camera.shake(0.05, 2)
 
 	var particles = particles_scene.instantiate() as CPUParticles2D
 	particles.global_position = global_position
@@ -47,8 +43,7 @@ func die():
 			var coin = coin_scene.instantiate() as Coin
 			coin.global_position = global_position
 			coin.velocity = Vector2(randf() * 200 - 100, -100)
-			if RoomManager.current_room:
-				RoomManager.current_room.call_deferred("add_child", coin)
+			RoomManager.current_room.call_deferred("add_child", coin)
 	else:
 		printerr("🪙 No coin scene assigned to enemy")
 

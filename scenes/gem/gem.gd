@@ -23,9 +23,8 @@ func die():
 	print("Gem died")
 
 	Clock.hitstop(0.1)
-	if RoomManager.current_room:
-		await Clock.wait(0.1)
-		RoomManager.current_room.camera.shake(1.0, 50)
+	await Clock.wait(0.1)
+	RoomManager.current_room.camera.shake(1.0, 50)
 
 func _on_area_entered(area: Area2D):
 	if area is Bullet:

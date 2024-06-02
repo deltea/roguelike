@@ -19,5 +19,3 @@ r = 2.0
 script = ExtResource("1_ynhrn")
 scale_dynamics = SubResource("Resource_e0avt")
 rotation_dynamics = SubResource("Resource_iv2gy")
-
-[node name="FlashTimer" type="Timer" parent="."]
