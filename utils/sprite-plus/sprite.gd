@@ -12,7 +12,7 @@ const shadow_offset_direction = Vector2(0, 1)
 @export var shadow_enabled = false
 @export var shadow_color = Color.BLACK
 @export var shadow_offset = 6.0
-@export var shadow_z = -1
+@export var shadow_z = -2
 
 @onready var scale_dynamics_solver := Dynamics.create_dynamics_vector(scale_dynamics)
 @onready var rotation_dynamics_solver := Dynamics.create_dynamics(rotation_dynamics)

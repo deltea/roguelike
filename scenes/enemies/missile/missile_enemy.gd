@@ -3,7 +3,7 @@ class_name MissileEnemy extends Enemy
 const SPIN_SPEED = 100.0
 const MOVE_SPEED = 10.0
 const BULLET_SPEED = 120.0
-const FIRE_OFFSET = 0.0
+const FIRE_OFFSET = 8.0
 const FIRE_DELAY = 1.0
 
 @export var bullet_scene: PackedScene
@@ -35,6 +35,8 @@ func _on_fire_timer_timeout():
 	bullet.rotation = rotation
 	bullet.speed = BULLET_SPEED
 	RoomManager.current_room.add_child(bullet)
+
+	sprite.impact_scale(Vector2.ONE * 1.3)
 
 	await Clock.wait(FIRE_DELAY)
 	is_moving = true
