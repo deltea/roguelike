@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd83eudc7bcdr"]
+[gd_scene load_steps=10 format=3 uid="uid://bd83eudc7bcdr"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_vyoty"]
 [ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="2_mqt8p"]
@@ -14,26 +14,9 @@ size = Vector2(8, 8)
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ol3h3"]
-curve = SubResource("Curve_3fd2j")
-
 [sub_resource type="Curve" id="Curve_lyph1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_oaibe"]
-curve = SubResource("Curve_lyph1")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_orxw6"]
-particle_flag_disable_z = true
-angle_min = -360.0
-angle_max = 360.0
-angle_curve = SubResource("CurveTexture_ol3h3")
-gravity = Vector3(0, 0, 0)
-scale_min = 0.45
-scale_max = 0.45
-scale_curve = SubResource("CurveTexture_oaibe")
-color = Color(1, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -50,13 +33,18 @@ shadow_enabled = true
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kvp4s")
 
-[node name="Trail" type="GPUParticles2D" parent="."]
+[node name="Trail" type="CPUParticles2D" parent="."]
 z_index = -2
 amount = 6
-process_material = SubResource("ParticleProcessMaterial_orxw6")
 texture = ExtResource("3_727t6")
-fixed_fps = 0
-draw_order = 0
+gravity = Vector2(0, 0)
+angle_min = -360.0
+angle_max = 360.0
+angle_curve = SubResource("Curve_3fd2j")
+scale_amount_min = 0.45
+scale_amount_max = 0.45
+scale_amount_curve = SubResource("Curve_lyph1")
+color = Color(1, 0, 0, 1)
 
 [node name="WeaponManager" type="Node2D" parent="."]
 script = ExtResource("5_01c06")

@@ -1,6 +1,6 @@
 class_name Gem extends Area2D
 
-@export var max_health = 10
+@export var max_health = 5
 @export var impact_rotation = 15.0
 
 @onready var sprite: Sprite = $Sprite
