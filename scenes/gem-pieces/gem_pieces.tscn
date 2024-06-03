@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://cncxn6hsdsde7"]
+
+[ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="1_3txcw"]
+[ext_resource type="Texture2D" uid="uid://j1wwy2taut46" path="res://assets/gem.png" id="2_88xp2"]
+[ext_resource type="Script" path="res://scenes/gem-pieces/gem-piece.gd" id="3_gaeud"]
+
+[node name="GemPieces" type="Node2D"]
+
+[node name="Sprite" parent="." instance=ExtResource("1_3txcw")]
+position = Vector2(4, -12.5)
+texture = ExtResource("2_88xp2")
+region_enabled = true
+region_rect = Rect2(0, 1, 16, 13)
+script = ExtResource("3_gaeud")
+initial_velocity = 200.0
+velocity_damping = 10.0
+initial_angular_velocity = 200.0
+angular_velocity_damping = 10.0
+scale_dynamics_enabled = false
+rotation_dynamics_enabled = false
+shadow_enabled = true
+
+[node name="Sprite2" parent="." instance=ExtResource("1_3txcw")]
+position = Vector2(-4, -6.5)
+texture = ExtResource("2_88xp2")
+region_enabled = true
+region_rect = Rect2(18, 2, 12, 13)
+script = ExtResource("3_gaeud")
+initial_velocity = 200.0
+velocity_damping = 10.0
+initial_angular_velocity = 200.0
+angular_velocity_damping = 10.0
+scale_dynamics_enabled = false
+rotation_dynamics_enabled = false
+shadow_enabled = true
+
+[node name="Sprite3" parent="." instance=ExtResource("1_3txcw")]
+position = Vector2(6, -0.5)
+texture = ExtResource("2_88xp2")
+region_enabled = true
+region_rect = Rect2(33, 1, 15, 15)
+script = ExtResource("3_gaeud")
+initial_velocity = 200.0
+velocity_damping = 10.0
+initial_angular_velocity = 200.0
+angular_velocity_damping = 10.0
+scale_dynamics_enabled = false
+rotation_dynamics_enabled = false
+shadow_enabled = true
+
+[node name="Sprite4" parent="." instance=ExtResource("1_3txcw")]
+position = Vector2(0, 9.5)
+texture = ExtResource("2_88xp2")
+region_enabled = true
+region_rect = Rect2(50, 2, 13, 11)
+script = ExtResource("3_gaeud")
+initial_velocity = 200.0
+velocity_damping = 10.0
+initial_angular_velocity = 200.0
+angular_velocity_damping = 10.0
+scale_dynamics_enabled = false
+rotation_dynamics_enabled = false
+shadow_enabled = true
+
+[node name="Sprite5" parent="." instance=ExtResource("1_3txcw")]
+position = Vector2(-2, 2.5)
+texture = ExtResource("2_88xp2")
+region_enabled = true
+region_rect = Rect2(67, 2, 11, 12)
+script = ExtResource("3_gaeud")
+initial_velocity = 200.0
+velocity_damping = 10.0
+initial_angular_velocity = 200.0
+angular_velocity_damping = 10.0
+scale_dynamics_enabled = false
+rotation_dynamics_enabled = false
+shadow_enabled = true

@@ -29,6 +29,8 @@ func _ready() -> void:
 		shadow = Sprite2D.new()
 		shadow.texture = texture
 		shadow.z_index = shadow_z
+		shadow.region_enabled = region_enabled
+		shadow.region_rect = region_rect
 		shadow.self_modulate = shadow_color
 		add_child(shadow)
 

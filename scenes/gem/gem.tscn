@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://docvysn63np0h"]
+[gd_scene load_steps=6 format=3 uid="uid://docvysn63np0h"]
 
 [ext_resource type="Script" path="res://scenes/gem/gem.gd" id="1_3e2b1"]
-[ext_resource type="Texture2D" uid="uid://j1wwy2taut46" path="res://assets/gem.png" id="3_x45a4"]
+[ext_resource type="PackedScene" uid="uid://cncxn6hsdsde7" path="res://scenes/gem-pieces/gem_pieces.tscn" id="2_j7ile"]
+[ext_resource type="Texture2D" uid="uid://fbmm7jgm7uxt" path="res://assets/gem-full.png" id="3_s0bkq"]
 [ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="4_je2fn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hno0o"]
@@ -11,13 +12,14 @@ size = Vector2(25, 32)
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_3e2b1")
+gem_pieces_scene = ExtResource("2_j7ile")
 
 [node name="Sprite" parent="." instance=ExtResource("4_je2fn")]
-texture = ExtResource("3_x45a4")
+texture = ExtResource("3_s0bkq")
 shadow_enabled = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 0)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_hno0o")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
