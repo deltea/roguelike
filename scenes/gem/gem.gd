@@ -25,9 +25,9 @@ func die():
 	gem_pieces.global_position = global_position
 	RoomManager.current_room.add_child(gem_pieces)
 
-	Clock.hitstop(0.1)
-	await Clock.wait(0.1)
-	RoomManager.current_room.camera.shake(1.0, 50)
+	# Clock.hitstop(0.1)
+	# await Clock.wait(0.1)
+	RoomManager.current_room.camera.shake(0.1, 5)
 
 func _on_area_entered(area: Area2D):
 	if area is Bullet:

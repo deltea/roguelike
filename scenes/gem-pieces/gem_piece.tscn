@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl4gl2ir116sh"]
+
+[ext_resource type="PackedScene" uid="uid://8c6n3jqhpthv" path="res://utils/sprite-plus/sprite.tscn" id="1_oxnne"]
+[ext_resource type="Script" path="res://scenes/gem-pieces/gem_piece.gd" id="2_eop5p"]
+
+[node name="GemPiece" instance=ExtResource("1_oxnne")]
+script = ExtResource("2_eop5p")
+initial_velocity = 200.0
+velocity_damping = 10.0
+initial_angular_velocity = 200.0
+angular_velocity_damping = 10.0
+shadow_enabled = true
