@@ -56,21 +56,19 @@ func impact_scale(value: Vector2):
 func impact_rotation(value: float):
 	rotation_dynamics_solver.set_value(value)
 
-func blink_out(duration: float = 1.0, iterations: int = 10):
+func blink(duration: float, iterations: int, direction: String):
 	var step_duration = duration / iterations
 	for i in range(iterations):
-		visible = true
+		visible = true if direction == "out" else false
 		await Clock.wait(step_duration - (i / float(iterations) * step_duration))
-		visible = false
+		visible = false if direction == "out" else true
 		await Clock.wait(i / float(iterations) * step_duration)
 
+func blink_out(duration: float = 1.0, iterations: int = 10):
+	blink(duration, iterations, "out")
+
 func blink_in(duration: float = 1.0, iterations: int = 10):
-	var step_duration = duration / iterations
-	for i in range(iterations):
-		visible = false
-		await Clock.wait(step_duration - (i / float(iterations) * step_duration))
-		visible = true
-		await Clock.wait(i / float(iterations) * step_duration)
+	blink(duration, iterations, "in")
 
 func flash(color: Color, duration: float = 0.1):
 	var prev_color = self_modulate

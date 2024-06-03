@@ -1,30 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1lgj3hshgqqr"]
 
-[ext_resource type="Texture2D" uid="uid://c8vebnkhtxxr6" path="res://assets/generic/circle.png" id="1_of8uv"]
+[ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="1_6o3yt"]
 
-[sub_resource type="Curve" id="Curve_fnfs5"]
+[sub_resource type="Curve" id="Curve_oa7dl"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_vhanu"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 0.736264), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_iik8b"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="Explosion" type="CPUParticles2D"]
-z_index = -1
+z_index = -2
 emitting = false
-amount = 4
-lifetime = 0.5
+amount = 1
+lifetime = 0.3
 one_shot = true
-explosiveness = 0.9
-texture = ExtResource("1_of8uv")
+explosiveness = 1.0
+texture = ExtResource("1_6o3yt")
 spread = 90.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 20.0
-initial_velocity_max = 30.0
-linear_accel_min = -40.0
-linear_accel_max = -40.0
-angle_min = -180.0
-angle_max = 180.0
-angle_curve = SubResource("Curve_fnfs5")
-scale_amount_curve = SubResource("Curve_vhanu")
+angle_min = -360.0
+angle_max = 360.0
+angle_curve = SubResource("Curve_oa7dl")
+scale_amount_curve = SubResource("Curve_iik8b")

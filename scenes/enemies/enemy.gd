@@ -23,7 +23,7 @@ func get_hurt(damage: int):
 	if health <= 0:
 		die()
 
-	sprite.impact_scale(Vector2.ONE * 1.3)
+	sprite.impact_scale(Vector2.ONE * 1.5)
 	sprite.flash(Color.WHITE)
 
 func die():

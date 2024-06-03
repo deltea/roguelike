@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://mh13futweqqx"]
+
+[ext_resource type="Texture2D" uid="uid://7qru5twwl775" path="res://assets/generic/square.png" id="1_8otq1"]
+
+[sub_resource type="Curve" id="Curve_itd4q"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_8dd44"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.740991, 0.613187), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Particles" type="CPUParticles2D"]
+emitting = false
+amount = 3
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+texture = ExtResource("1_8otq1")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+angle_min = -360.0
+angle_max = 360.0
+angle_curve = SubResource("Curve_itd4q")
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_8dd44")
