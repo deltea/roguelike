@@ -12,7 +12,7 @@ point_count = 3
 
 [node name="Particles" type="CPUParticles2D"]
 emitting = false
-amount = 3
+amount = 1
 lifetime = 0.5
 one_shot = true
 explosiveness = 0.8

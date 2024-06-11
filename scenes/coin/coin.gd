@@ -20,6 +20,8 @@ func collect():
 	sprite.target_scale = Vector2.ZERO
 	await Clock.wait(0.05)
 
+	RoomManager.current_room.add_xp(1)
+
 	queue_free()
 
 func _on_body_entered(body: Node2D):

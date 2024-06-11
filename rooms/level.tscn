@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://scripts/walls.gd" id="6_mrcnm"]
 [ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="9_s2gwg"]
 [ext_resource type="PackedScene" uid="uid://cyo41grvmjqs0" path="res://scenes/shop/shop.tscn" id="10_6u3sq"]
-[ext_resource type="PackedScene" uid="uid://bwh4ng6ishfd8" path="res://scenes/enemies/basic/basic_enemy.tscn" id="10_quw2d"]
-[ext_resource type="PackedScene" uid="uid://bdgs67hdaqnpf" path="res://scenes/enemies/missile/missile_enemy.tscn" id="11_wnw2a"]
+[ext_resource type="PackedScene" uid="uid://bwh4ng6ishfd8" path="res://scenes/enemies/basic/basic_enemy.tscn" id="10_s2cy7"]
+[ext_resource type="PackedScene" uid="uid://bdgs67hdaqnpf" path="res://scenes/enemies/missile/missile_enemy.tscn" id="11_8vqnk"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4hw5w"]
 frequency = 0.009
@@ -43,6 +43,7 @@ normal = Vector2(-1, 0)
 
 [node name="Level" instance=ExtResource("1_1ucq3")]
 script = ExtResource("2_8bbte")
+shop_scene = ExtResource("10_6u3sq")
 palette = ExtResource("3_dpd37")
 
 [node name="Camera" parent="." index="0" instance=ExtResource("4_xx8e1")]
@@ -106,60 +107,14 @@ scale = Vector2(0.941667, 0.888889)
 
 [node name="Enemies" type="Node" parent="." index="5"]
 
-[node name="BasicEnemy" parent="Enemies" index="0" instance=ExtResource("10_quw2d")]
-position = Vector2(-257, -44)
-collision_mask = 1
+[node name="BasicEnemy" parent="Enemies" index="0" instance=ExtResource("10_s2cy7")]
+position = Vector2(-241, -100)
 
-[node name="BasicEnemy2" parent="Enemies" index="1" instance=ExtResource("10_quw2d")]
-position = Vector2(-249, 25)
-collision_mask = 1
+[node name="BasicEnemy3" parent="Enemies" index="1" instance=ExtResource("10_s2cy7")]
+position = Vector2(-132, -138)
 
-[node name="BasicEnemy3" parent="Enemies" index="2" instance=ExtResource("10_quw2d")]
-position = Vector2(-251, 106)
-collision_mask = 1
+[node name="BasicEnemy5" parent="Enemies" index="2" instance=ExtResource("10_s2cy7")]
+position = Vector2(216, -82)
 
-[node name="BasicEnemy4" parent="Enemies" index="3" instance=ExtResource("10_quw2d")]
-position = Vector2(-186, -100)
-collision_mask = 1
-
-[node name="BasicEnemy5" parent="Enemies" index="4" instance=ExtResource("10_quw2d")]
-position = Vector2(-67, -140)
-collision_mask = 1
-
-[node name="BasicEnemy6" parent="Enemies" index="5" instance=ExtResource("10_quw2d")]
-position = Vector2(-122, -114)
-collision_mask = 1
-
-[node name="BasicEnemy7" parent="Enemies" index="6" instance=ExtResource("10_quw2d")]
-position = Vector2(18, -126)
-collision_mask = 1
-
-[node name="BasicEnemy8" parent="Enemies" index="7" instance=ExtResource("10_quw2d")]
-position = Vector2(121, -120)
-collision_mask = 1
-
-[node name="BasicEnemy9" parent="Enemies" index="8" instance=ExtResource("10_quw2d")]
-position = Vector2(189, -98)
-collision_mask = 1
-
-[node name="BasicEnemy10" parent="Enemies" index="9" instance=ExtResource("10_quw2d")]
-position = Vector2(241, -70)
-collision_mask = 1
-
-[node name="BasicEnemy11" parent="Enemies" index="10" instance=ExtResource("10_quw2d")]
-position = Vector2(265, 0)
-collision_mask = 1
-
-[node name="BasicEnemy12" parent="Enemies" index="11" instance=ExtResource("10_quw2d")]
-position = Vector2(266, 54)
-collision_mask = 1
-
-[node name="BasicEnemy13" parent="Enemies" index="12" instance=ExtResource("10_quw2d")]
-position = Vector2(273, 98)
-collision_mask = 1
-
-[node name="MissileEnemy" parent="Enemies" index="13" instance=ExtResource("11_wnw2a")]
-collision_mask = 1
-
-[node name="Shop" parent="." index="6" instance=ExtResource("10_6u3sq")]
-position = Vector2(0, 72)
+[node name="MissileEnemy" parent="Enemies" index="3" instance=ExtResource("11_8vqnk")]
+position = Vector2(-169, -33)

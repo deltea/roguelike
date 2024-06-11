@@ -8,6 +8,9 @@ var shop_slots = 3
 
 signal upgrades_rerolled
 
+func _enter_tree() -> void:
+	create_upgrades()
+
 func reroll_upgrades():
 	print("rerolled!")
 	reroll_price += 1
@@ -17,7 +20,7 @@ func create_upgrade(upgrade_object: UpgradeObject):
 	all_upgrades.push_back(upgrade_object)
 
 func create_upgrades():
-	create_upgrade(UpgradeObject.new("Stuff", load("res://assets/upgrades/upgrade.png")))
+	create_upgrade(UpgradeObject.new("Stuff", load("res://assets/upgrades/upgrade-1.png")))
 	create_upgrade(UpgradeObject.new("Stuff 3", load("res://assets/upgrades/upgrade-3.png")))
 	create_upgrade(UpgradeObject.new("Stuff 2", load("res://assets/upgrades/upgrade-2.png")))
 

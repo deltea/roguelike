@@ -49,6 +49,7 @@ func _process(_delta: float) -> void:
 		shadow.global_position = global_position + shadow_offset_direction * shadow_offset
 		shadow.global_rotation = global_rotation
 		shadow.global_scale = global_scale
+		shadow.texture = texture
 
 func impact_scale(value: Vector2):
 	scale_dynamics_solver.set_value(value)

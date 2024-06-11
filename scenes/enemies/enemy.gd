@@ -29,8 +29,8 @@ func get_hurt(damage: int):
 func die():
 	queue_free()
 
-	Clock.hitstop(0.05)
-	RoomManager.current_room.camera.shake(0.05, 2)
+	# Clock.hitstop(0.05)
+	RoomManager.current_room.camera.shake(0.05, 4)
 
 	var particles = particles_scene.instantiate() as CPUParticles2D
 	particles.global_position = global_position
