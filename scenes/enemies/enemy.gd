@@ -2,15 +2,17 @@ class_name Enemy extends CharacterBody2D
 
 @export var max_health = 3
 @export var knockback_magnitude = 200.0
-@export var coin_drop_min = 0
+@export var coin_drop_min = 1
 @export var coin_drop_max = 1
 @export var coin_scene: PackedScene
 
 @onready var sprite: Sprite = $Sprite
 @onready var collider: CollisionShape2D = $CollisionShape
+@onready var hitbox: Area2D = $Hitbox
 
 var health = max_health
 var knockback_velocity = Vector2.ZERO
+var disabled = false
 
 var particles_scene = preload ("res://particles/enemy-explosion.tscn")
 
@@ -56,3 +58,9 @@ func _on_hitbox_area_entered(area: Area2D):
 
 func knockback(direction: Vector2, force: float):
 	knockback_velocity = -direction.normalized() * force
+
+func set_disabled(value: bool):
+	disabled = value
+	collider.set_deferred("disabled", value)
+	hitbox.set_deferred("monitoring", not value)
+	sprite.self_modulate = Color.RED if value else Color.GREEN

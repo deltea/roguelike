@@ -2,7 +2,7 @@ class_name Gem extends Area2D
 
 @export var max_health = 5
 @export var impact_rotation = 25.0
-@export var gem_pieces_scene: PackedScene
+@export var gem_pieces_scene: PackedScene 
 
 @onready var sprite: Sprite = $Sprite
 @onready var icon: Sprite = $Icon

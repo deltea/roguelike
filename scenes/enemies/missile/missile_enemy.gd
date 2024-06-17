@@ -19,6 +19,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	super._process(delta)
 
+	if disabled: return
+
 	if is_moving:
 		sprite.target_rotation_degrees += SPIN_SPEED * delta
 		var direction = (RoomManager.current_room.player.global_position - global_position).normalized()

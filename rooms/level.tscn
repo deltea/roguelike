@@ -105,7 +105,7 @@ shape = SubResource("WorldBoundaryShape2D_10laq")
 [node name="Player" parent="." index="4" instance=ExtResource("2_xp7ls")]
 scale = Vector2(0.941667, 0.888889)
 
-[node name="Enemies" type="Node" parent="." index="5"]
+[node name="Enemies" type="Node2D" parent="." index="5"]
 
 [node name="BasicEnemy" parent="Enemies" index="0" instance=ExtResource("10_s2cy7")]
 position = Vector2(-241, -100)

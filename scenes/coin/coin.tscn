@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cf5k5qof680ly" path="res://assets/coin.png" id="3_uq7ct"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ir2b"]
-radius = 40.0
+radius = 20.0
 
 [node name="Coin" type="Area2D"]
 collision_mask = 2
